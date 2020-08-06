@@ -62,7 +62,7 @@ while True:
     else:
         break
 
-    #with open을 사용시 나중에 close를 해줄 필요가 없음
-    with open('foodstore.json','w',encoding='utf-8') as writefile:
-        #ensure_ascii = 한글이 유니코드로 보이는 것을 막기위한 것, 
-        json.dump(store,writefile,ensure_ascii=False,indent='\t')
+#with open을 사용시 나중에 close를 해줄 필요가 없음
+with open('foodstore.json','w',encoding='utf-8') as writefile:
+    #ensure_ascii = 한글이 유니코드로 보이는 것을 막기위한 것, 
+    json.dump(store,writefile,ensure_ascii=False,indent='\t')
