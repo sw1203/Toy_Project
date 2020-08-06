@@ -17,6 +17,8 @@ num = 1
 
 #네이버 지도 검색 url에 접근
 driver.get('https://map.naver.com/v5/search')
+#페이지 로딩 시간이 필요 
+sleep(3)
 
 #xpath로 네이버 지도 검색창 접근
 elem = driver.find_element_by_xpath('/html/body/app/layout/div[2]/div[2]/div[1]/shrinkable-layout/search-layout/search-box/div/div[1]/div/input')
