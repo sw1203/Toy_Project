@@ -7,20 +7,7 @@ import json
 # 다운 받은 Chromedriver의 위치
 path = 'D:/chromedriver/chromedriver.exe'
 query = "왕십리 국밥집"
-
-#크롬 옵션 객체 생성 
-chrome_options = webdriver.ChromeOptions()
-
-#headless 모드 설정
-chrome_options.add_argument('headless')
-
-#gpu 사용 안하도록 설정
-chrome_options.add_argument("--disable-gpu")
-
-#한국어로 실행되도록 설정
-chrome_options.add_argument("lang=ko_KR")
-
-driver = webdriver.Chrome(path, chrome_options=chrome_options)
+driver = webdriver.Chrome(path)
 
 #음식점 정보 담기위한 dictionary타입 변수 선언
 store = dict()
@@ -60,8 +47,8 @@ while True:
     # span tag 중에 class가 search_text address인 것 찾기        
     addr = soup.find_all('span', class_='search_text address')
 
-    for na, ad in zip(name,addr):
-        store[num] = {'name': na.string,'address': ad.string}
+    for na, ad in zip(name, addr):
+        store[num] = {'name': na.string, 'address': ad.string}
         num+=1
         
     #xpath로 다음 버튼 element 접근
@@ -76,9 +63,7 @@ while True:
         break
 
 #with open을 사용시 나중에 close를 해줄 필요가 없음
-with open('foodstore.json','w',encoding='utf-8') as writefile:
+with open('foodstore2.json','w',encoding='utf-8') as writefile:
     #ensure_ascii = 한글이 유니코드로 보이는 것을 막기위한 것, 
     json.dump(store,writefile,ensure_ascii=False,indent='\t')
 
-driver.quit()
-print("종료")
