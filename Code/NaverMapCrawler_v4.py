@@ -101,7 +101,8 @@ def crawling(event):
         #ensure_ascii = 한글이 유니코드로 보이는 것을 막기위한 것, 
         json.dump(store,writefile,ensure_ascii=False,indent='\t')
 
-    #driver.quit()
+    driver.quit()
+    
     #라벨에 text 설정
     label.config(text="크롤링 종료")
 
